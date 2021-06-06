@@ -25,9 +25,10 @@ print(data.head())
 
 # 2: Select the 4 columns that contain coordinate information (**'from_x'**, **'from_y'**, **'to_x'**, **'to_y'**) and store them in variable **`data`** (i.e. update the data -variable  to contain only these four columns).
 # reset data
-data=data.filter(['x','y'])
+
 
 # YOUR CODE HERE 2 to set `data`
+data=data.filter(['x','y'])
 
 # CODE FOR TESTING YOUR SOLUTION
 print(list(data.columns))
@@ -76,8 +77,8 @@ print('dest_points length:', len(dest_points))
 #create points in orig_points and dest_points
 from shapely.geometry import Point
 for i,row in data.iterrows():
-  o=Point(row['from_x'], row['from_y'])
-  d=Point(row['to_x'], row['to_y'])
+  o=Point[data[i]['from_x'], data[i]['from_y']]
+  d=Point[data[i]['to_x'], data[i]['to_y']]
   orig_points.append(o)
   dest_points.append(d)
 
@@ -173,11 +174,11 @@ def create_od_lines(o_points,d_points):
   return od_lines
 
 #createtotal_distance()
-def total_distance(lines):
-  total_dis=0
+def calculate_total_distance(lines):
+  total_distance=0
   for i in lines.length:
-    total_dis+=lines[i].length
-  return total_dis
+    total_distance+=lines[i].length
+  return total_distance
 
 
 # CODE FOR TESTING YOUR SOLUTION
