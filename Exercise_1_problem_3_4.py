@@ -144,6 +144,10 @@ assert len(lines) == len(data), "There should be as many lines as there are rows
 # 
 
 # YOUR CODE HERE 7 to find total length
+# make total_length
+total_length=o
+for l in lines:
+  total_length+=lines.length
 
 # CODE FOR TESTING YOUR SOLUTION
 
