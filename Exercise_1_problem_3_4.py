@@ -24,7 +24,7 @@ print(data.head())
 
 
 # 2: Select the 4 columns that contain coordinate information (**'from_x'**, **'from_y'**, **'to_x'**, **'to_y'**) and store them in variable **`data`** (i.e. update the data -variable  to contain only these four columns).
-# 
+# reset data
 data=data.filter(['x','y'])
 
 # YOUR CODE HERE 2 to set `data`
@@ -37,6 +37,9 @@ print(list(data.columns))
 # 
 
 # YOUR CODE HERE 3 to define empty lists orig_points and dest_points
+# set orig_points and dest_points
+orig_points=[]
+dest_points=[]
 
 # CODE FOR TESTING YOUR SOLUTION
 
