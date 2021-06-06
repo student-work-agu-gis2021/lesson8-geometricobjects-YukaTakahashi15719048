@@ -122,7 +122,6 @@ except Exception as e:
 #  YOUR CODE HERE 6 to define 
 ##create new function get_centroid()
 def get_centroid(geom):
-  assert type(geom) == 'shapely', "Input should be a Shapely geometry!"
   assert geom.geom_type in ['Point', 'LineString', 'Polygon'], "Input should be a Shapely geometry!"
   centroid = geom.centroid
   return centroid

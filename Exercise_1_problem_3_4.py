@@ -10,8 +10,10 @@
 
 # YOUR CODE HERE 1 to read the file
 #raise NotImplementedError()
+## read the data 'data/travelTimes_2015_Helsinki.txt'
 import pandas as pd 
-
+fp=r'data/travelTimes_2015_Helsinki.txt'
+data = pd.read_csv(fp)
 #Check how many rows and columns there are:
 data
 
