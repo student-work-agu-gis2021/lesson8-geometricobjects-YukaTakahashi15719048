@@ -34,7 +34,7 @@ def create_line_geom(points):
   assert type(points)=="list", "Input should be a list!"
   assert len(points)>=2, "LineString object requires at least two Points!"
   for i in points:
-    assert type(i) == 'shapely', "All list values should be Shapely Point objects!"
+    assert type(points[i]) == 'shapely', "All list values should be Shapely Point objects!"
   line = LineString([points[0], points[1]])
   return line
 
@@ -146,6 +146,9 @@ except Exception as e:
 #    - Inside the function, you should first check with `assert` -functionality that the input is a Shapely Polygon geometry (see [lesson 6](https://geo-python.github.io/site/lessons/L6/interpreting-errors.html#assertions) and [hints](https://automating-gis-processes.github.io/site/develop/lessons/L1/exercise-1.html#hints)). If something else than a list is passed for the function, you should return an Error message: `"Input should be a Shapely Polygon -object!"`
 
 # YOUR CODE HERE 8 to define get_area()
+def get_area(polygon):
+  assert type(polygon)=="list", "Input should be a Shapely Polygon -object!"
+  return polygon.area
 
 # Test and demonstrate the usage of the function:
 get_area(poly1)
@@ -171,6 +174,12 @@ except Exception as e:
 
 
 #  YOUR CODE HERE 9 to define get_length()
+def get_length(geom):
+  if geom.geom_type == 'LineString':
+    return geom.length
+  elif geom.geom_type == 'Polygon':
+    return geom.exterior.length
+  assert geom.geom_type == 'LineString'|geom.geom_type == 'Polygon', "Input should be a Shapely geometry!"
 
 # Test and demonstrate the usage of the function:
 
@@ -202,6 +211,7 @@ except Exception as e:
 # Did you add a docstring to all the functions you defined? If not, add them now :) A short one-line docstring is enough in this exercise.
 
 # YOUR ANSWER HERE
+#i did it
 
 # In addition, you can run the code cell below to check all the docstrings!
 
