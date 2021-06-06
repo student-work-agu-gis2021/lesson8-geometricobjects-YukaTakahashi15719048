@@ -128,6 +128,9 @@ print('lines length:', len(lines))
 # YOUR CODE HERE 6 to append LineString to lines
 #raise NotImplementedError()
 from shapely.geometry import LineString
+for o,d in zip(orig_points,dest_points):
+  l=LineString([orig_points,dest_points])
+  lines.appends(l)
 
 # CODE FOR TESTING YOUR SOLUTION
 
