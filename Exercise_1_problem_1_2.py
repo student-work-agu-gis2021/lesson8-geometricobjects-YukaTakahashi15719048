@@ -34,7 +34,7 @@ def create_line_geom(points):
   assert type(points)=="list", "Input should be a list!"
   assert len(points)>=2, "LineString object requires at least two Points!"
   for i in points:
-    assert type(points[i]) is 'shapely', "All list values should be Shapely Point objects!"
+    assert type(i) == 'shapely', "All list values should be Shapely Point objects!"
   line = LineString([points[0], points[1]])
   return line
 
@@ -42,10 +42,7 @@ def create_line_geom(points):
 
 line1 = None
 # YOUR CODE HERE 3 to define two points and store the result in line1
-line1[0][0] = 45.2
-line1[1][0] = 22.34
-line2[0][0] = 100.22
-line2[1][0] = -3.20
+line1 = LineString([ Point(45.2, 22.34), Point(100.22, -3.20) ])
 # CODE FOR TESTING YOUR SOLUTION
 print(line1)
 
@@ -86,7 +83,7 @@ def create_poly_geom(coords):
 # Demonstrate the usage of the function. For example, create a Polygon with three points: `(45.2, 22.34)`, `(100.22, -3.20)` & `(70.0, 10.20)`.
 
 # YOUR CODE HERE 5 to define poly1 with three points
-poly1 = 
+poly1 = Polygon[Point(45.2, 22.34), Point(100.22, -3.20), Point(70.0, 10.20), Point(45.2, 22.34)]
 
 # CODE FOR TESTING YOUR SOLUTION
 print(poly1)
@@ -116,7 +113,12 @@ except Exception as e:
 #   - Inside the function, you should first check with `assert` -functionality that the input is a Shapely Point, LineString or Polygon geometry (see [lesson 6](https://autogis-site.readthedocs.io/en/latest/lessons/L1/exercise-1.html#hints) from the Geo-Python couurse and [hints](https://autogis-site.readthedocs.io/en/latest/lessons/L1/exercise-1.html#hints) for help). If something else than a list is passed for the function, you should return an Error message: `"Input should be a Shapely geometry!"`
 # 
 
-#  YOUR CODE HERE 6 to define get_centroid()
+#  YOUR CODE HERE 6 to define 
+def get_centroid(gem):
+  assert type(gem) == 'shapely', "Input should be a Shapely geometry!"
+  assert gem.geom_type in ['Point', 'LineString', 'Polygon'], "Input should be a Shapely geometry!"
+  centroid = gem.centroid
+  return centroid
 
 # Test and demonstrate the usage of the function. You can, for example, create shapely objects using the functions you created in problem 1 and print out information about their centroids:
 # 
