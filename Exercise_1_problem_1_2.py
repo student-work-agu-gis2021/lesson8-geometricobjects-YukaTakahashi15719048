@@ -33,7 +33,7 @@ print(point1.geom_type)
 def create_line_geom(points):
   assert type(points)=="list", "Input should be a list!"
   assert len(points)>=2, "LineString object requires at least two Points!"
-  for i in range( len(points) ):
+  for i in points:
     assert type(points[i]) is 'shapely', "All list values should be Shapely Point objects!"
   line = LineString([points[0], points[1]])
   return line
